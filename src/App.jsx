@@ -9,16 +9,18 @@ function App() {
 
   const projects = [
     {
-      title: "Upcomingrapcalendar",
+      title: "Upcoming Rap Calendar",
       description: "A platform dedicated to providing information on upcoming releases in the hip-hop music genre. It includes release dates and details for new albums,",
       imagesCount: 77,
-      imageBaseName: "project1/image1x"
+      imageBaseName: "project1/image1x",
+      fullImage: "project1/project1completeimage.jpg"
     },
     {
-      title: "Project 2",
-      description: "Short description of Project 2",
-      imagesCount: 77,
-      imageBaseName: "project1/image1x"
+      title: "Music Player",
+      description: "A basic music player for windows 10 with drag and drop support for files and folders.",
+      imagesCount: 150,
+      imageBaseName: "project2/image1x",
+      fullImage: "project2/musicplayer.jpg"
     },
   ];
 
@@ -27,18 +29,17 @@ function App() {
         <div style={{ flexGrow: 1 }}>
         <p>hello</p>
         <AboutMe />
-        {/* <ProjectGrid/> */}
         <div>
-      {projects.map((project, index) => (
+      {projects.map(({ title, description, fullImage, imageBaseName, imagesCount }, index) => (
         <Project 
           key={index}
-          title={project.title}
-          description={project.description}
-          images={Array.from({ length: project.imagesCount }, (_, i) => `/${project.imageBaseName}${i+1}.jpg`)}
+          title={title}
+          description={description}
+          fullImage={fullImage}
+          images={Array.from({ length: imagesCount }, (_, i) => `/${imageBaseName}${i+1}.jpg`)}
         />
       ))}
     </div>
-        {/* <GridAssembler/> */}
       </div>
       <Footer />
     </div>
