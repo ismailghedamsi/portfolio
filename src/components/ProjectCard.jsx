@@ -4,7 +4,7 @@ import styled from 'styled-components';
 function ProjectCard({ title, description, imageUrl }) {
 
     const ProjectCardContainer = styled.div`
-  /* Basic layout and spacing */
+/* Basic layout and spacing */
   display: flex;
   flex-direction: column;
   align-items: center;
