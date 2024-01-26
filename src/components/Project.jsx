@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Modal from 'react-modal';
+import { useSpring, animated } from 'react-spring';
+
 Modal.setAppElement('#root');
 
 // Keyframes for the drop animation
@@ -58,7 +60,7 @@ const GridItem = styled.div`
 
 
 // Project component
-const Project = ({ title, description, images, fullImage }) => {
+const Project = ({ title, description, images, fullImage, style }) => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -82,7 +84,15 @@ const Project = ({ title, description, images, fullImage }) => {
     return () => window.removeEventListener('keydown', closeOnEsc);
   }, []);
 
+  const fadeIn = useSpring({
+    from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
+    to: { opacity: 1, transform: 'translate3d(0,0px,0)' },
+    delay: 200, // You can adjust the delay for each project
+  });
+
+
   return (
+    <animated.div style={fadeIn}>
     <ProjectCard>
       <h2>{title}</h2>
       <p>{description}</p>
@@ -120,6 +130,7 @@ const Project = ({ title, description, images, fullImage }) => {
         {selectedImage && <img src={selectedImage} alt={title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />}
       </Modal>
     </ProjectCard>
+    </animated.div>
   );
 };
 

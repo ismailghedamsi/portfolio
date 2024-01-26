@@ -38,6 +38,7 @@ function App() {
           <React.Fragment key={index}>
         <Project 
           key={index}
+          style={{ delay: index * 100 }}
           title={title}
           description={description}
           fullImage={fullImage}
