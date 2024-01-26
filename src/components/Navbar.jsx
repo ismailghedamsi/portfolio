@@ -27,10 +27,14 @@ const CenteredNav = styled(Nav)`
   width: 100%;
 `;
 
+const StyledNavbar = styled(Navbar)`
+background-color: #cadefc;
+`;
+
 
 const MyNavbar = () => {
   return (
-    <Navbar bg="light" expand="lg">
+    <StyledNavbar expand="lg">
       <Navbar.Brand href="#home">
         <img
           src={futuristicdeveloper}
@@ -48,7 +52,7 @@ const MyNavbar = () => {
           <ThreeDLink href="https://www.linkedin.com/in/ismail-ghedamsi-29997540/" target="_blank" rel="noopener noreferrer">LinkedIn</ThreeDLink>
         </CenteredNav>
       </Navbar.Collapse>
-    </Navbar>
+    </StyledNavbar>
   );
 };
 
