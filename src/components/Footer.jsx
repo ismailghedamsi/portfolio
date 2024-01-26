@@ -1,21 +1,32 @@
 import React from 'react';
 import linkIcon from '../assets/transparent_link.png';
-import backgroundImage from '../assets/black_background.jpg'; // adjust the path as needed
-
+import styled from 'styled-components';
 
 const Footer = () => {
-    const linkStyles = {
-        marginRight: '10px',
-        color: 'blue',
-        textDecoration: 'underline',
-        '@media (max-width: 600px)': {
-            marginRight: '5px',
-        },
-    };
+    // const linkStyles = {
+    //     marginRight: '10px',
+    //     color: 'blue',
+    //     textDecoration: 'underline',
+    //     '@media (max-width: 600px)': {
+    //         marginRight: '5px',
+    //     },
+    // };
 
-    const mainContentStyles = {
-        flexGrow: 1,
-    };
+    const ThreeDLink = styled.a`
+  color: #fff; // Default color
+  position: relative;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
+  &:hover {
+    transform: translateZ(10px); // Enhanced 3D effect on hover
+    text-shadow: 
+      1px 1px 5px lightblue, // Deep blue shadow for 3D effect
+      2px 2px 10px #00008b, // Adding depth
+      3px 3px 15px #00008b, // Further depth
+      4px 4px 20px #00008b; // Maximum depth
+  }
+`;
 
     const flexContainerStyles = {
         display: 'flex',
@@ -39,7 +50,7 @@ const Footer = () => {
     };
 
     const footerStyles = {
-        backgroundColor: '#f8f9fa',
+        backgroundColor: '#cadefc',
         color: '#212529',
         width: '100%',
         display: 'flex', // Add this line
@@ -54,18 +65,18 @@ const Footer = () => {
             <div className="footer-container">
                 <p>&copy; {new Date().getFullYear()} Ismail Ghedamsi</p>
                 <div className="social-links">
-                    <a href="https://www.linkedin.com/in/ismail-ghedamsi-29997540/" target="_blank" rel="noopener noreferrer" style={linkStyles}>
+                    <ThreeDLink href="https://www.linkedin.com/in/ismail-ghedamsi-29997540/" target="_blank" rel="noopener noreferrer">
                     <div style={flexContainerStyles}>
                         <img src={linkIcon} alt="Linkedin" style={{ width: '40px', height: '40px', marginRight: '5px' }} />
                         <span style={socialLinkStyles}>Linkedin</span>
                     </div>
-                    </a>
-                    <a href="https://github.com/ismailghedamsi" target="_blank" rel="noopener noreferrer" style={linkStyles}>
+                    </ThreeDLink>
+                    <ThreeDLink href="https://github.com/ismailghedamsi" target="_blank" rel="noopener noreferrer">
                     <div style={flexContainerStyles}>
                         <img src={linkIcon} alt="Github" style={{ width: '40px', height: '40px', marginRight: '5px' }} />
                         <span style={socialLinkStyles}>Github</span>
                     </div>
-                    </a>
+                    </ThreeDLink>
                 </div>
             </div>
         </footer>
