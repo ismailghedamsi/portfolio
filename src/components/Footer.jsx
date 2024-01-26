@@ -24,7 +24,7 @@ const Footer = () => {
 
     const socialLinkStyles = {
         fontSize: '16px',
-        color: 'gold',
+        color: '#212529',
         display: "flex",
         textDecoration: 'none',
         justifyContent: "space-around",
@@ -39,14 +39,14 @@ const Footer = () => {
     };
 
     const footerStyles = {
-        backgroundColor: 'BLACK',
-        color: 'GOLD',
+        backgroundColor: '#f8f9fa',
+        color: '#212529',
         width: '100%',
         display: 'flex', // Add this line
         justifyContent: 'center', // Add this line
     };
         
-    // add any other styles you want
+   
 
 
     return (
