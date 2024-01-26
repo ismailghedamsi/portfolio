@@ -56,6 +56,7 @@ const GridItem = styled.div`
 `;
 
 
+
 // Project component
 const Project = ({ title, description, images, fullImage }) => {
 

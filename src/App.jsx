@@ -1,8 +1,11 @@
+import React from 'react';
 import './App.css';
 import AboutMe from './components/About';
 import Footer from './components/Footer';
+import Navbar from './components/Navbar';
 import Project from './components/Project';
-
+import FireLine from './components/separators/FireLine';
+import WaveLine from './components/separators/WaveLine';
 
 
 function App() {
@@ -25,12 +28,14 @@ function App() {
   ];
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <div style={{ display: 'flex',  backgroundColor: '#f5f5f5', flexDirection: 'column', minHeight: '100vh' }}>
+      <Navbar />
         <div style={{ flexGrow: 1 }}>
-        <p>hello</p>
         <AboutMe />
         <div>
+          <FireLine />
       {projects.map(({ title, description, fullImage, imageBaseName, imagesCount }, index) => (
+          <React.Fragment key={index}>
         <Project 
           key={index}
           title={title}
@@ -38,6 +43,8 @@ function App() {
           fullImage={fullImage}
           images={Array.from({ length: imagesCount }, (_, i) => `/${imageBaseName}${i+1}.jpg`)}
         />
+        {index < projects.length - 1 && <WaveLine />}
+      </React.Fragment>
       ))}
     </div>
       </div>
