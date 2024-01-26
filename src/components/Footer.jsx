@@ -39,7 +39,7 @@ const Footer = () => {
     };
 
     const footerStyles = {
-        backgroundColor: '#f8f9fa',
+        backgroundColor: '#cadefc',
         color: '#212529',
         width: '100%',
         display: 'flex', // Add this line
