@@ -3,14 +3,6 @@ import myImage from '../assets/futuristicdeveloper.webp';
 import {styled, css} from 'styled-components';
 import { keyframes } from 'styled-components';
 
-
-const AboutMe = () => {
-  const variants = {
-    hidden: { opacity: 0, x: -200 },
-    visible: { opacity: 1, x: 0 },
-  };
-
-
 const gradient = keyframes`
   0% {
     background-position: 0% 50%;
@@ -40,6 +32,12 @@ const AnimatedTitle = styled.h1`
 const AnimatedSpan = styled.span`
   ${gradientAnimation}
 `;
+
+const AboutMe = () => {
+  const variants = {
+    hidden: { opacity: 0, x: -200 },
+    visible: { opacity: 1, x: 0 },
+  };
 
   return (
     <motion.div

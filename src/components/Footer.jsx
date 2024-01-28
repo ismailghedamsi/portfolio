@@ -2,32 +2,25 @@ import React from 'react';
 import linkIcon from '../assets/transparent_link.png';
 import styled from 'styled-components';
 
-const Footer = () => {
-    // const linkStyles = {
-    //     marginRight: '10px',
-    //     color: 'blue',
-    //     textDecoration: 'underline',
-    //     '@media (max-width: 600px)': {
-    //         marginRight: '5px',
-    //     },
-    // };
 
-    const ThreeDLink = styled.a`
-  color: #fff; // Default color
-  position: relative;
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+const ThreeDLink = styled.a`
+color: #fff; // Default color
+position: relative;
+transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 
-  &:hover {
-    transform: translateZ(10px); // Enhanced 3D effect on hover
-    text-shadow: 
-      1px 1px 5px lightblue, // Deep blue shadow for 3D effect
-      2px 2px 10px #00008b, // Adding depth
-      3px 3px 15px #00008b, // Further depth
-      4px 4px 20px #00008b; // Maximum depth
-  }
+&:hover {
+  transform: translateZ(10px); // Enhanced 3D effect on hover
+  text-shadow: 
+    1px 1px 5px lightblue, // Deep blue shadow for 3D effect
+    2px 2px 10px #00008b, // Adding depth
+    3px 3px 15px #00008b, // Further depth
+    4px 4px 20px #00008b; // Maximum depth
+}
 `;
 
+const Footer = () => {
+ 
     const flexContainerStyles = {
         display: 'flex',
         alignItems: 'center',

@@ -4,6 +4,8 @@ import styled, { keyframes } from 'styled-components';
 import Modal from 'react-modal';
 import { useSpring, animated } from 'react-spring';
 
+
+
 Modal.setAppElement('#root');
 
 // Keyframes for the drop animation
@@ -59,12 +61,16 @@ const GridItem = styled.div`
 
 
 
+
+
 // Project component
 const Project = ({ title, description, images, fullImage, style }) => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
+
+
 
   useEffect(() => {
     if (selectedImage) {
@@ -84,11 +90,39 @@ const Project = ({ title, description, images, fullImage, style }) => {
     return () => window.removeEventListener('keydown', closeOnEsc);
   }, []);
 
+
+
+
+
   const fadeIn = useSpring({
     from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
     to: { opacity: 1, transform: 'translate3d(0,0px,0)' },
     delay: 200, // You can adjust the delay for each project
   });
+
+  function openModal() {
+    setModalIsOpen(true);
+  }
+  
+  function closeModal() {
+    setModalIsOpen(false);
+  }
+
+ 
+
+  
+  const CloseButton = ({ onClick }) => (
+    <button onClick={onClick} style={{
+      position: 'absolute', // Use absolute positioning
+      top: '10px', // Adjust these as needed
+      right: '10px',
+      border: 'none',
+      background: 'transparent',
+      cursor: 'pointer',
+    }}>
+      <img src={"1.png"} alt="Close" style={{ width: '30px', height: '30px' }} />
+    </button>
+  );
 
 
   return (
@@ -98,7 +132,6 @@ const Project = ({ title, description, images, fullImage, style }) => {
       <p>{description}</p>
       <GridContainer>
         {images.map((src, index) => {
-          console.log(src);
           return <GridItem key={src} delay={index * 0.055}>
             <img
               src={src}
@@ -114,7 +147,7 @@ const Project = ({ title, description, images, fullImage, style }) => {
       </GridContainer>
       <Modal
         isOpen={modalIsOpen}
-        onRequestClose={() => setModalIsOpen(false)}
+        onRequestClose={closeModal}
         contentLabel="Project Image"
         ariaHideApp={false}
         style={{
@@ -124,9 +157,11 @@ const Project = ({ title, description, images, fullImage, style }) => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            position: 'relative', // Ensure this is set to 'relative'
           },
         }}
       >
+        <CloseButton onClick={closeModal} />
         {selectedImage && <img src={selectedImage} alt={title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />}
       </Modal>
     </ProjectCard>
