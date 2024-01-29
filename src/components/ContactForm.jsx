@@ -12,7 +12,7 @@ const FormContainer = styled.div`
 position: relative;
 max-width: 500px; // Same width as your form for alignment
 margin: 0 auto; // Center the wrapper
-z-index: 1; // Make sure it's on top
+z-index: 2; 
 `;
 
 
@@ -27,16 +27,36 @@ const fadeIn = keyframes`
   }
 `;
 
+const borderRotate = keyframes`
+  100% {
+    --angle: 420deg;
+  }
+`;
+
 const StyledContactForm = styled(Form)`
+
   font-size: 1rem;
   margin: 1rem auto; // Center the form
   padding: 2rem;
   max-width: 500px; // Set a max-width for larger screens
-  background-color: #f2f2f2; // Light background color
+  background-color: #FFA500; // Light background color
   border-radius: 8px; // Rounded corners
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow
   border: none;
   animation: ${fadeIn} 0.5s ease-out forwards;
+
+
+  font-size: 1rem;
+margin: 1rem auto;
+padding: 2rem;
+max-width: 500px;
+border: 0.35rem solid;
+border-radius: 8px;
+border-image: conic-gradient(from var(--angle), rgba(168, 239, 255, 0.1), rgba(168, 239, 255, 1) 0.1turn, rgba(168, 239, 255, 1) 0.15turn, rgba(168, 239, 255, 0.1) 0.25turn) 30;
+animation: ${borderRotate} 2500ms linear infinite forwards;
+--angle: 90deg;
+background-color: #f2f2f2; // Light background color
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow
 
   input, textarea {
     width: 100%; // Full-width form fields
