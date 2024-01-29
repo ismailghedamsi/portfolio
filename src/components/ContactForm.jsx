@@ -113,7 +113,7 @@ const ContactForm = () => {
   const form = useRef();
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Required'),
+    from_name: Yup.string().required('Required'),
     email: Yup.string().email('Invalid email').required('Required'),
     message: Yup.string().required('Required'),
   });
