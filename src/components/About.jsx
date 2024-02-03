@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import myImage from '../assets/futuristicdeveloper.webp';
 import {styled, css} from 'styled-components';
 import { keyframes } from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 const gradient = keyframes`
   0% {
@@ -34,6 +35,8 @@ const AnimatedSpan = styled.span`
 `;
 
 const AboutMe = () => {
+
+  const { t } = useTranslation();
   const variants = {
     hidden: { opacity: 0, x: -200 },
     visible: { opacity: 1, x: 0 },
@@ -58,21 +61,21 @@ const AboutMe = () => {
     >
       <motion.img
         src={myImage}
-        alt="Me"
+        alt={t('aboutMe.alt')} // translation key for alt text
         style={{ width: '200px', borderRadius: '50%' }}
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1 }}
       />
-      <AnimatedTitle>Hello, I'm Ismail Ghedamsi</AnimatedTitle>
+      <AnimatedTitle>{t("aboutMe.title")}</AnimatedTitle>
       <p style={{ color: '#666', fontSize: '1.2em', textAlign: 'justify', maxWidth: '800px' }}>
-        As an <AnimatedSpan>enthusiastic programmer</AnimatedSpan>, I thrive on the pulse of <AnimatedSpan>cutting-edge technologies</AnimatedSpan>. My journey in the realm of coding is not just a profession; it's a <AnimatedSpan>passion</AnimatedSpan>. I find joy in exploring the ever-evolving landscape of programming languages, frameworks, and tools.
+      {t('aboutMe.intro')} <AnimatedSpan>{t('aboutMe.enthusiasticProgrammer')}</AnimatedSpan>{t('aboutMe.introCont')} <AnimatedSpan>{t('aboutMe.cuttingEdgeTechnologies')}</AnimatedSpan>{t('aboutMe.introEnd')} <AnimatedSpan>{t('aboutMe.passion')}</AnimatedSpan>{t('aboutMe.introConclusion')}
       </p>
       <p style={{ color: '#666', fontSize: '1.2em', textAlign: 'justify', maxWidth: '800px' }}>
-        My coding journey is deeply rooted in the belief that the best way to master technology is to use it to solve <AnimatedSpan>real-world problems</AnimatedSpan>. I've always been driven by the idea of programming in the service of my own needs. Whether it's developing a tool to streamline my workflow or creating an application that addresses a personal challenge, I approach coding as a means to  <AnimatedSpan>empower and enhance my own experiences.</AnimatedSpan>
+      {t('aboutMe.journeyIntro')} <AnimatedSpan>{t('aboutMe.realWorldProblems')}</AnimatedSpan>{t('aboutMe.journeyCont')} <AnimatedSpan>{t('aboutMe.empowerEnhance')}</AnimatedSpan>{t('aboutMe.journeyConclusion')}
       </p>
       <p style={{ color: '#666', fontSize: '1.2em', textAlign: 'justify', maxWidth: '800px' }}>
-        Beyond self-service, I'm on a mission to leverage my skills for a broader <AnimatedSpan>impact on the real world</AnimatedSpan>. I believe in the transformative power of technology to bring about positive change. With each line of code, I aim to contribute to solutions that make a meaningful difference.
+      {t('aboutMe.missionIntro')} <AnimatedSpan>{t('aboutMe.impactRealWorld')}</AnimatedSpan>{t('aboutMe.missionConclusion')}
       </p>
     </motion.div>
   );
