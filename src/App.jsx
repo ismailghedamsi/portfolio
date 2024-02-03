@@ -7,6 +7,7 @@ import Project from './components/Project';
 import FireLine from './components/separators/FireLine';
 import WaveLine from './components/separators/WaveLine';
 import ContactForm from './components/ContactForm';
+import './components/translations/i18Initializer';
 
 
 function App() {

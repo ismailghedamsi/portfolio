@@ -1,0 +1,40 @@
+{
+  "aboutMe": {
+    "title": "Bonjour, je suis Ismail Ghedamsi",
+    "intro": "En tant que",
+    "enthusiasticProgrammer": "programmeur enthousiaste",
+    "introCont": ", je prospère au rythme des",
+    "cuttingEdgeTechnologies": "technologies de pointe",
+    "introEnd": ". Mon parcours dans le domaine du codage n'est pas seulement une profession ; c'est une",
+    "passion": "passion",
+    "introConclusion": ". Je trouve de la joie à explorer le paysage en constante évolution des langages de programmation, des cadres et des outils.",
+    "journeyIntro": "Mon voyage de codage est profondément enraciné dans la conviction que la meilleure façon de maîtriser la technologie est de l'utiliser pour résoudre",
+    "realWorldProblems": "des problèmes réels",
+    "journeyCont": ". J'ai toujours été motivé par l'idée de programmer au service de mes propres besoins...",
+    "empowerEnhance": "d'habiliter et d'améliorer mes propres expériences",
+    "journeyConclusion": ".",
+    "missionIntro": "Au-delà de l'auto-service, je suis en mission pour tirer parti de mes compétences pour un impact plus large",
+    "impactRealWorld": "sur le monde réel",
+    "missionConclusion": ". Je crois en le pouvoir transformateur de la technologie pour apporter un changement positif. Avec chaque ligne de code, je vise à contribuer à des solutions qui font une différence significative."
+  },
+  "contactForm": {
+    "title": "Formulaire de Contact",
+    "nameLabel": "Nom",
+    "emailLabel": "E-mail",
+    "messageLabel": "Message",
+    "submitButton": "Envoyer",
+    "successMessage": "Formulaire soumis avec succès !",
+    "required": "Obligatoire",
+    "invalidEmail": "E-mail invalide",
+    "validation": {
+      "name_required": "Veuillez entrer votre nom.",
+      "name_min": "Le nom doit contenir au moins 2 caractères.",
+      "email_required": "Veuillez entrer votre adresse e-mail.",
+      "email_invalid": "L'adresse e-mail n'est pas valide. Exemple : nom@exemple.com",
+      "message_required": "Veuillez entrer votre message.",
+      "message_min": "Le message doit contenir au moins 20 caractères.",
+      "phone_required": "Veuillez entrer votre numéro de téléphone.",
+      "phone_invalid": "Le numéro de téléphone n'est pas valide. Exemple : +33 1 23 45 67 89"
+    }
+  }
+}
