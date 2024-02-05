@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import ParticleEffectButton from 'react-particle-effect-button';
 import ParticlesContainer from './ParticleContainer';
 import styled, { keyframes } from 'styled-components';
 import emailjs from 'emailjs-com';
