@@ -4,6 +4,7 @@ import futuristicdeveloper from '../assets/futuristicdeveloper.webp'; // adjust 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled, { keyframes } from 'styled-components';
 import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 const ThreeDLink = styled(Nav.Link)`
   color: #fff; // Default color
@@ -71,6 +72,7 @@ const DropdownMenuStyled = styled(Dropdown.Menu)`
 
 const MyNavbar = () => {
   const [language, setLanguage] = useState('FR');
+  const {t} = useTranslation();
   return (
     <StyledNavbar expand="lg">
       <Navbar.Brand href="#home">
@@ -85,7 +87,7 @@ const MyNavbar = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <CenteredNav>
-          <ThreeDLink href="/resume.pdf" download>Download Resume</ThreeDLink>
+          <ThreeDLink href="/resume.pdf" download>{t("nav.resume")}</ThreeDLink>
           <ThreeDLink href="https://github.com/ismailghedamsi" target="_blank" rel="noopener noreferrer">GitHub</ThreeDLink>
           <ThreeDLink href="https://www.linkedin.com/in/ismail-ghedamsi-29997540/" target="_blank" rel="noopener noreferrer">LinkedIn</ThreeDLink>
           <LanguageDropdown>

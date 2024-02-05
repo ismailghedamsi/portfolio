@@ -1,4 +1,11 @@
 {
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "contact": "Contact",
+    "resume": "CV"
+  },
   "aboutMe": {
     "title": "Bonjour, je suis Ismail Ghedamsi",
     "intro": "En tant que",
@@ -35,6 +42,16 @@
       "message_min": "Le message doit contenir au moins 20 caractères.",
       "phone_required": "Veuillez entrer votre numéro de téléphone.",
       "phone_invalid": "Le numéro de téléphone n'est pas valide. Exemple : +33 1 23 45 67 89"
+    }
+  },
+  "projects": {
+    "project1": {
+      "title": "Calendrier des sorties rap à venir",
+      "description": "Une plateforme dédiée à fournir des informations sur les prochaines sorties dans le genre musical hip-hop. Elle inclut les dates de sortie et les détails pour les nouveaux albums,"
+    },
+    "project2": {
+      "title": "Lecteur MP3",
+      "description": "Un lecteur de musique basique pour Windows 10 avec support de glisser-déposer pour les fichiers et dossiers."
     }
   }
 }

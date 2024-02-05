@@ -8,21 +8,24 @@ import FireLine from './components/separators/FireLine';
 import WaveLine from './components/separators/WaveLine';
 import ContactForm from './components/ContactForm';
 import './components/translations/i18Initializer';
+import { useTranslation } from 'react-i18next';
 
 
 function App() {
 
+  const {t} = useTranslation()
+
   const projects = [
     {
-      title: "Upcoming Rap Calendar",
-      description: "A platform dedicated to providing information on upcoming releases in the hip-hop music genre. It includes release dates and details for new albums,",
+      title: t("projects.project1.title"),
+      description: t('projects.project1.description'),
       imagesCount: 77,
       imageBaseName: "project1/image1x",
       fullImage: "project1/project1completeimage.jpg"
     },
     {
-      title: "Music Player",
-      description: "A basic music player for windows 10 with drag and drop support for files and folders.",
+      title: t('projects.project2.title'),
+      description: t('projects.project2.description'),
       imagesCount: 150,
       imageBaseName: "project2/image1x",
       fullImage: "project2/musicplayer.jpg"

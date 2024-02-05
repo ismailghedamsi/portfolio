@@ -1,4 +1,11 @@
 {
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact",
+    "resume": "Resume"
+  },
   "aboutMe": {
     "title": "Hello, I'm Ismail Ghedamsi",
     "intro": "As an",
@@ -35,6 +42,16 @@
       "message_min": "The message must contain at least 20 characters.",
       "phone_required": "Please enter your phone number.",
       "phone_invalid": "The phone number is not valid. Example: +33 1 23 45 67 89"
+    }
+  },
+  "projects": {
+    "project1": {
+      "title": "Upcoming Rap Calendar",
+      "description": "A platform dedicated to providing information on upcoming releases in the hip-hop music genre. It includes release dates and details for new albums,"
+    },
+    "project2": {
+      "title": "MP3 Player",
+      "description": "A basic music player for windows 10 with drag and drop support for files and folders."
     }
   }
 }

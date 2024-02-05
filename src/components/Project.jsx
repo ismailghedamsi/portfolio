@@ -60,17 +60,12 @@ const GridItem = styled.div`
 `;
 
 
-
-
-
 // Project component
 const Project = ({ title, description, images, fullImage, style }) => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
-
-
 
   useEffect(() => {
     if (selectedImage) {
@@ -91,9 +86,6 @@ const Project = ({ title, description, images, fullImage, style }) => {
   }, []);
 
 
-
-
-
   const fadeIn = useSpring({
     from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
     to: { opacity: 1, transform: 'translate3d(0,0px,0)' },
@@ -110,7 +102,6 @@ const Project = ({ title, description, images, fullImage, style }) => {
 
  
 
-  
   const CloseButton = ({ onClick }) => (
     <button onClick={onClick} style={{
       position: 'absolute', // Use absolute positioning
