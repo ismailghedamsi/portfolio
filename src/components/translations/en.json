@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact",
+    "resume": "Resume"
+  },
+  "aboutMe": {
+    "title": "Hello, I'm Ismail Ghedamsi",
+    "intro": "As an",
+    "enthusiasticProgrammer": "enthusiastic programmer",
+    "introCont": ", I thrive on the pulse of",
+    "cuttingEdgeTechnologies": "cutting-edge technologies",
+    "introEnd": ". My journey in the realm of coding is not just a profession; it's a",
+    "passion": "passion",
+    "introConclusion": ". I find joy in exploring the ever-evolving landscape of programming languages, frameworks, and tools.",
+    "journeyIntro": "My coding journey is deeply rooted in the belief that the best way to master technology is to use it to solve",
+    "realWorldProblems": "real-world problems",
+    "journeyCont": ". I've always been driven by the idea of programming in the service of my own needs...",
+    "empowerEnhance": "empower and enhance my own experiences",
+    "journeyConclusion": ".",
+    "missionIntro": "Beyond self-service, I'm on a mission to leverage my skills for a broader",
+    "impactRealWorld": "impact on the real world",
+    "missionConclusion": ". I believe in the transformative power of technology to bring about positive change. With each line of code, I aim to contribute to solutions that make a meaningful difference."
+  },
+  "contactForm": {
+    "title": "Contact Form",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "submitButton": "Send",
+    "successMessage": "Form submitted successfully!",
+    "required": "Required",
+    "invalidEmail": "Invalid email",
+    "validation": {
+      "name_required": "Please enter your name.",
+      "name_min": "Your name should have at least 2 characters.",
+      "email_required": "Please enter your email address.",
+      "email_invalid": "The email address is not valid. Example: name@example.com",
+      "message_required": "Please enter your message.",
+      "message_min": "The message must contain at least 20 characters.",
+      "phone_required": "Please enter your phone number.",
+      "phone_invalid": "The phone number is not valid. Example: +33 1 23 45 67 89"
+    }
+  },
+  "projects": {
+    "project1": {
+      "title": "Upcoming Rap Calendar",
+      "description": "A platform dedicated to providing information on upcoming releases in the hip-hop music genre. It includes release dates and details for new albums,"
+    },
+    "project2": {
+      "title": "MP3 Player",
+      "description": "A basic music player for windows 10 with drag and drop support for files and folders."
+    }
+  }
+}

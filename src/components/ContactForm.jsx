@@ -5,7 +5,7 @@ import ParticleEffectButton from 'react-particle-effect-button';
 import ParticlesContainer from './ParticleContainer';
 import styled, { keyframes } from 'styled-components';
 import emailjs from 'emailjs-com';
-
+import { useTranslation } from 'react-i18next';
 
 
 const FormContainer = styled.div`
@@ -106,6 +106,7 @@ const SuccessMessage = styled.div`
 
 
 const ContactForm = () => {
+  const {t} = useTranslation();
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [buttonHidden, setButtonHidden] = useState(false);
 
@@ -113,9 +114,13 @@ const ContactForm = () => {
   const form = useRef();
 
   const validationSchema = Yup.object().shape({
-    from_name: Yup.string().required('Required'),
-    email: Yup.string().email('Invalid email').required('Required'),
-    message: Yup.string().required('Required'),
+    from_name: Yup.string().required(t('contactForm.validation.name_required')).min(2, t('contactForm.validation.name_min')),
+    email: Yup.string()
+    .email(t('contactForm.validation.email_invalid'))
+    .required(t('contactForm.validation.email_required')),
+    message: Yup.string()
+    .required(t('contactForm.validation.message_required'))
+    .min(20, t('contactForm.validation.message_min'))
   });
 
 
@@ -158,21 +163,21 @@ const ContactForm = () => {
       >
         {({ isSubmitting }) => (
           <StyledContactForm>
-            <h2>Contact form</h2>
-            <StyledLabel htmlFor="from_name">Name</StyledLabel>
+            <h2>{t('contactForm.title')}</h2>
+            <StyledLabel htmlFor="from_name">{t('contactForm.nameLabel')}</StyledLabel>
             <StyledInput id="name" type="text" name="from_name" />
             <ErrorMessage name="from_name" component={StyledErrorMessage} />
 
-            <StyledLabel htmlFor="email">Email</StyledLabel>
+            <StyledLabel htmlFor="email">{t('contactForm.emailLabel')}</StyledLabel>
             <StyledInput id="email" type="email" name="email" />
             <ErrorMessage name="email" component={StyledErrorMessage} />
 
-            <StyledLabel htmlFor="message">Message</StyledLabel>
+            <StyledLabel htmlFor="message">{t('contactForm.messageLabel')}</StyledLabel>
             <Field id="message" as="textarea" name="message" />
             <ErrorMessage name="message" component={StyledErrorMessage} />
 
             <button type="submit" disabled={isSubmitting}>
-              Send
+              {t('contactForm.submitButton')}
             </button>
           </StyledContactForm>
         )}
