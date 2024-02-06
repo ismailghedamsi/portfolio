@@ -27,15 +27,45 @@ const drop = keyframes`
 `;
 
 const ProjectCard = styled.div`
-  background: white;
-  border: 1px solid #ddd;
+  position: relative;
+  overflow: hidden;
   border-radius: 8px;
   padding: 20px;
-  margin: 20px auto; 
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 600px;
-  width: 100%; 
+  width: 100%;
+  color: white;
+
+  /* Initial gradient background */
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+
+  /* Setup for gradient animation */
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #ff8a00, #e52e71); /* New gradient for hover */
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  /* Ensure content is above the pseudo-element */
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  &:hover:before {
+    opacity: 1; /* Show the new gradient on hover */
+  }
 `;
+
+
 
 const GridContainer = styled.div`
   display: grid;
@@ -95,12 +125,12 @@ const Project = ({ title, description, images, fullImage, style }) => {
   function openModal() {
     setModalIsOpen(true);
   }
-  
+
   function closeModal() {
     setModalIsOpen(false);
   }
 
- 
+
 
   const CloseButton = ({ onClick }) => (
     <button onClick={onClick} style={{
@@ -118,44 +148,44 @@ const Project = ({ title, description, images, fullImage, style }) => {
 
   return (
     <animated.div style={fadeIn}>
-    <ProjectCard>
-      <h2>{title}</h2>
-      <p>{description}</p>
-      <GridContainer>
-        {images.map((src, index) => {
-          return <GridItem key={src} delay={index * 0.055}>
-            <img
-              src={src}
-              alt={`Project part ${index}`}
-              style={{ width: '100%', display: 'block' }}
-              onClick={() => {
-                setSelectedImage(fullImage);
-                setModalIsOpen(true);
-              }}
-            />
-          </GridItem>
-        })}
-      </GridContainer>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="Project Image"
-        ariaHideApp={false}
-        style={{
-          content: {
-            width: imageDimensions.width,
-            height: imageDimensions.height,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            position: 'relative', // Ensure this is set to 'relative'
-          },
-        }}
-      >
-        <CloseButton onClick={closeModal} />
-        {selectedImage && <img src={selectedImage} alt={title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />}
-      </Modal>
-    </ProjectCard>
+      <ProjectCard>
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <GridContainer>
+          {images.map((src, index) => {
+            return <GridItem key={src} delay={index * 0.055}>
+              <img
+                src={src}
+                alt={`Project part ${index}`}
+                style={{ width: '100%', display: 'block' }}
+                onClick={() => {
+                  setSelectedImage(fullImage);
+                  setModalIsOpen(true);
+                }}
+              />
+            </GridItem>
+          })}
+        </GridContainer>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          contentLabel="Project Image"
+          ariaHideApp={false}
+          style={{
+            content: {
+              width: imageDimensions.width,
+              height: imageDimensions.height,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              position: 'relative', // Ensure this is set to 'relative'
+            },
+          }}
+        >
+          <CloseButton onClick={closeModal} />
+          {selectedImage && <img src={selectedImage} alt={title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />}
+        </Modal>
+      </ProjectCard>
     </animated.div>
   );
 };
