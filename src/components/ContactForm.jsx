@@ -1,19 +1,21 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import ParticlesContainer from './ParticleContainer';
 import styled, { keyframes } from 'styled-components';
 import emailjs from 'emailjs-com';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import CSS for animations
+import useInView from './Observers/useInView';
 
 
-const FormContainer = styled.div`
-position: relative;
-max-width: 500px; // Same width as your form for alignment
-margin: 0 auto; // Center the wrapper
-z-index: 2; 
+const FormContainer = styled(motion.div)`
+  position: relative;
+  max-width: 500px; // Same width as your form for alignment
+  margin: 0 auto; // Center the wrapper
+  z-index: 2; 
 `;
-
 
 const fadeIn = keyframes`
   from {
@@ -105,7 +107,15 @@ const SuccessMessage = styled.div`
 
 
 const ContactForm = () => {
-  const {t} = useTranslation();
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+
+  const { t } = useTranslation();
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [buttonHidden, setButtonHidden] = useState(false);
 
@@ -115,11 +125,11 @@ const ContactForm = () => {
   const validationSchema = Yup.object().shape({
     from_name: Yup.string().required(t('contactForm.validation.name_required')).min(2, t('contactForm.validation.name_min')),
     email: Yup.string()
-    .email(t('contactForm.validation.email_invalid'))
-    .required(t('contactForm.validation.email_required')),
+      .email(t('contactForm.validation.email_invalid'))
+      .required(t('contactForm.validation.email_required')),
     message: Yup.string()
-    .required(t('contactForm.validation.message_required'))
-    .min(20, t('contactForm.validation.message_min'))
+      .required(t('contactForm.validation.message_required'))
+      .min(20, t('contactForm.validation.message_min'))
   });
 
 
@@ -132,7 +142,7 @@ const ContactForm = () => {
       user_email: values.email,
       message: values.message,
     };
-  
+
     emailjs.send('service_b7buwxz', 'template_dp0u1ze', templateParams, 'dpu079tdZgXB5-W8C')
       .then(response => {
         console.log('SUCCESS!', response.status, response.text);
@@ -149,11 +159,13 @@ const ContactForm = () => {
         actions.setSubmitting(false);
       });
   };
-  
+
 
   return (
-    <FormContainer>
-      <ParticlesContainer initial={true} />
+    <FormContainer ref={ref}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isInView ? 1 : 0 }}
+      transition={{ duration: 5 }}>
       <Formik
         forwardRef={form}
         initialValues={initialValues}
@@ -182,12 +194,7 @@ const ContactForm = () => {
         )}
       </Formik>
       {formSubmitted && (
-        <ParticleEffectButton
-          color='#121019'
-          hidden={buttonHidden}
-        >
-          <SuccessMessage>Form submitted successfully!</SuccessMessage>
-        </ParticleEffectButton>
+        <SuccessMessage>Form submitted successfully!</SuccessMessage>
       )}
     </FormContainer>
   );
