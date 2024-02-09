@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Modal from 'react-modal';
 import { useSpring, animated } from 'react-spring';
+import Tooltip from './ToolTip';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import CSS for animations
 
 
 
@@ -65,6 +68,12 @@ const ProjectCard = styled.div`
   }
 `;
 
+const TechnologyLogos = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; // Add some space between the project content and the logos
+`;
+
 
 const GridContainer = styled.div`
   display: grid;
@@ -90,11 +99,18 @@ const GridItem = styled.div`
 
 
 // Project component
-const Project = ({ title, description, images, fullImage, style }) => {
+const Project = ({ title, description, images, fullImage, style, technologies, projectId }) => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
+
+  const projectTechnologies = technologies[projectId] || [];
+
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   useEffect(() => {
     if (selectedImage) {
@@ -165,6 +181,12 @@ const Project = ({ title, description, images, fullImage, style }) => {
             </GridItem>
           })}
         </GridContainer>
+        <TechnologyLogos>
+          {Array.isArray(technologies) && technologies.map((techLogo, index) => {
+            return <Tooltip text={techLogo.name}><img data-aos-duration="3000" data-aos="fade-right" key={index} src={techLogo.logoFilename} alt={`Technology ${index}`} style={{ width: '50px', height: '50px', margin: '5px' }} /></Tooltip>
+          })}
+        </TechnologyLogos>
+
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}

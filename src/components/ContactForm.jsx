@@ -135,7 +135,7 @@ const ContactForm = () => {
 
 
   const sendEmail = (values, actions) => {
-    console.log(values);
+
     const templateParams = {
       from_name: values.from_name,
       to_name: 'Ismail Ghedamsi',
@@ -145,7 +145,6 @@ const ContactForm = () => {
 
     emailjs.send('service_b7buwxz', 'template_dp0u1ze', templateParams, 'dpu079tdZgXB5-W8C')
       .then(response => {
-        console.log('SUCCESS!', response.status, response.text);
         actions.setSubmitting(false);
         actions.resetForm();
         setFormSubmitted(true);
@@ -155,7 +154,6 @@ const ContactForm = () => {
           setButtonHidden(false);
         }, 5000); // Reset after 5 seconds
       }, error => {
-        console.log('FAILED...', error);
         actions.setSubmitting(false);
       });
   };
