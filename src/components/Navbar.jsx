@@ -5,26 +5,47 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styled, { keyframes } from 'styled-components';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-scroll';
 
-const ThreeDLink = styled(Nav.Link)`
-  color: #fff; // Default color
+const linkStyles = `
+  display: inline-block;
+  margin: 0 15px; // Adjust the value as needed for your design
+  color: #fff;
   position: relative;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  margin: 0 15px; // Adjust the value as needed for your design
 
   &:hover {
-    transform: translateZ(10px); // Enhanced 3D effect on hover
+    transform: translateZ(10px);
     text-shadow: 
-      1px 1px 5px lightblue, // Deep blue shadow for 3D effect
-      2px 2px 10px #00008b, // Adding depth
-      3px 3px 15px #00008b, // Further depth
-      4px 4px 20px #00008b; // Maximum depth
+      1px 1px 5px lightblue,
+      2px 2px 10px #00008b,
+      3px 3px 15px #00008b,
+      4px 4px 20px #00008b;
   }
 `;
 
+const ThreeDLink = styled(Nav.Link)`
+  ${linkStyles}
+`;
+
+const ThreeDAnchor = styled(Link).attrs({
+  activeClass: 'active',
+  spy: true,
+  smooth: true,
+  offset: -70,
+  duration: 500
+})`
+  ${linkStyles}
+  text-decoration: none; // Add other styles specific to ThreeDAnchor if needed
+
+  // Add any additional states or styles below
+`;
 const CenteredNav = styled(Nav)`
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
 `;
 
@@ -90,6 +111,9 @@ const MyNavbar = () => {
           <ThreeDLink href="/resume.pdf" download>{t("nav.resume")}</ThreeDLink>
           <ThreeDLink href="https://github.com/ismailghedamsi" target="_blank" rel="noopener noreferrer">GitHub</ThreeDLink>
           <ThreeDLink href="https://www.linkedin.com/in/ismail-ghedamsi-29997540/" target="_blank" rel="noopener noreferrer">LinkedIn</ThreeDLink>
+          <ThreeDAnchor to="aboutMe" spy={true} smooth={true} offset={-70} duration={500}>{t("nav.about")}</ThreeDAnchor>
+          <ThreeDAnchor to="projects" spy={true} smooth={true} offset={-70} duration={500}>{t("nav.projects")}</ThreeDAnchor>
+          <ThreeDAnchor to="contact" spy={true} smooth={true} offset={-70} duration={500}>{t("nav.contact")}</ThreeDAnchor>
           <LanguageDropdown>
             <DropdownToggleStyled id="dropdown-language-selector">
               {language}

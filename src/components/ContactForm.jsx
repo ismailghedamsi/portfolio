@@ -162,6 +162,7 @@ const ContactForm = () => {
   return (
     <FormContainer ref={ref}
       initial={{ opacity: 0 }}
+      id='contact'
       animate={{ opacity: isInView ? 1 : 0 }}
       transition={{ duration: 5 }}>
       <Formik
