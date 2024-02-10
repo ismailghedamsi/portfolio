@@ -54,6 +54,7 @@ const AboutMe = () => {
         backgroundColor: '#f5f5f5',
         borderRadius: '10px',
       }}
+      id="aboutMe"
       initial="hidden"
       animate="visible"
       variants={variants}

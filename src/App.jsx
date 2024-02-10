@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import AboutMe from './components/About';
 import Footer from './components/Footer';
@@ -9,11 +9,40 @@ import WaveLine from './components/separators/WaveLine';
 import ContactForm from './components/ContactForm';
 import './components/translations/i18Initializer';
 import { useTranslation } from 'react-i18next';
+import BackToTopButton from './components/BackToTopButton';
 
 
 function App() {
 
   const {t} = useTranslation()
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show the button when the page is scrolled past the screen height
+      if (window.scrollY > window.innerHeight) {
+        setShowBackToTop(true);
+      } else {
+        setShowBackToTop(false);
+      }
+    };
+
+    // Add the event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
 
   const projects = [
     {
@@ -49,6 +78,9 @@ function App() {
   return (
     <div style={{ display: 'flex',  backgroundColor: '#f5f5f5', flexDirection: 'column', minHeight: '100vh' }}>
       <Navbar />
+      <BackToTopButton onClick={scrollToTop} style={{ display: showBackToTop ? 'block' : 'none' }}>
+        Top
+      </BackToTopButton>
         <div style={{ flexGrow: 1 }}>
         <AboutMe />
         <div>

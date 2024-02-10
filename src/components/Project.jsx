@@ -162,7 +162,7 @@ const Project = ({ title, description, images, fullImage, style, technologies, p
 
 
   return (
-    <animated.div style={fadeIn}>
+    <animated.div id="projects" style={fadeIn}>
       <ProjectCard>
         <h2>{title}</h2>
         <p>{description}</p>
