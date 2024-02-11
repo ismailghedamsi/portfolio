@@ -136,10 +136,13 @@ const ContactForm = () => {
 
   const sendEmail = (values, actions) => {
 
+    console.log('values', values);
+
     const templateParams = {
       from_name: values.from_name,
       to_name: 'Ismail Ghedamsi',
-      user_email: values.email,
+      user_email: "ismailghedamsi@gmail.com",
+      from_email: values.email,
       message: values.message,
     };
 
