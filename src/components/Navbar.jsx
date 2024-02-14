@@ -6,29 +6,9 @@ import styled, { keyframes } from 'styled-components';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-scroll';
+import {linkStyles, ThreeDLink} from './styled_components/StyledLink'
 
-const linkStyles = `
-  display: inline-block;
-  margin: 0 15px; // Adjust the value as needed for your design
-  color: #fff;
-  position: relative;
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  margin: 0 15px; // Adjust the value as needed for your design
 
-  &:hover {
-    transform: translateZ(10px);
-    text-shadow: 
-      1px 1px 5px lightblue,
-      2px 2px 10px #00008b,
-      3px 3px 15px #00008b,
-      4px 4px 20px #00008b;
-  }
-`;
-
-const ThreeDLink = styled(Nav.Link)`
-  ${linkStyles}
-`;
 
 const ThreeDAnchor = styled(Link).attrs({
   activeClass: 'active',
@@ -108,7 +88,7 @@ const MyNavbar = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <CenteredNav>
-          <ThreeDLink href="/resume.pdf" download>{t("nav.resume")}</ThreeDLink>
+          <ThreeDLink href="/cv_ismail_ghedamsi.pdf" download>{t("nav.resume")}</ThreeDLink>
           <ThreeDLink href="https://github.com/ismailghedamsi" target="_blank" rel="noopener noreferrer">GitHub</ThreeDLink>
           <ThreeDLink href="https://www.linkedin.com/in/ismail-ghedamsi-29997540/" target="_blank" rel="noopener noreferrer">LinkedIn</ThreeDLink>
           <ThreeDAnchor to="aboutMe" spy={true} smooth={true} offset={-70} duration={500}>{t("nav.about")}</ThreeDAnchor>

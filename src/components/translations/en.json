@@ -45,6 +45,7 @@
     }
   },
   "projects": {
+    "website": "Website",
     "project1": {
       "title": "Upcoming Rap Calendar",
       "description": "A platform dedicated to providing information on upcoming releases in the hip-hop music genre. It includes release dates and details for new albums,"
@@ -52,6 +53,14 @@
     "project2": {
       "title": "MP3 Player",
       "description": "A basic music player for windows 10 with drag and drop support for files and folders."
+    },
+    "project3": {
+      "title": "Internship management app (School Project)",
+      "description": "An internship management app that facilitate the managements of interns and internship processus"
+    },
+    "project4": {
+      "title": "Internship management app",
+      "description": "An internship management app that facilitate the managements of interns and internship processus"
     }
   }
 }

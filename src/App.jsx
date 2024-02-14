@@ -47,20 +47,40 @@ function App() {
   const projects = [
     {
       id : 0,
-      title: t("projects.project1.title"),
-      description: t('projects.project1.description'),
-      imagesCount: 77,
-      imageBaseName: "project1/image1x",
-      fullImage: "project1/project1completeimage.jpg"
-    },
-    {
-      id : 1,
       title: t('projects.project2.title'),
       description: t('projects.project2.description'),
       imagesCount: 150,
       imageBaseName: "project2/image1x",
-      fullImage: "project2/musicplayer.jpg"
+      fullImage: "project2/musicplayer.jpg",
+      githubLink:"https://github.com/yourgithubprofile/yourprojectrepo"
     },
+    {
+      id : 1,
+      title: t("projects.project1.title"),
+      description: t('projects.project1.description'),
+      imagesCount: 77,
+      imageBaseName: "project1/image1x",
+      fullImage: "project1/project1completeimage.jpg",
+      githubLink:"https://github.com/ismailghedamsi/hiphopalbumreleasedates",
+      websiteLink:"https:/www.upcomingrapcalendar.com"
+    },
+    {
+      id : 2,
+      title: t('projects.project3.title'),
+      description: t('projects.project3.description'),
+      imagesCount: 20,
+      imageBaseName: "project3/image1x",
+      fullImage: "project3/project3.jpg",
+      githubLink:"https://github.com/ismailghedamsi/InternshipManager"
+    },
+    {
+      id : 3,
+      title: t('projects.project4.title'),
+      description: t('projects.project3.description'),
+      imagesCount: 27,
+      imageBaseName: "project4/image1x",
+      fullImage: "project4/project4.jpg",
+    }
   ];
 
   const technologies = {
@@ -71,6 +91,16 @@ function App() {
     ],
     1: [
       { name: 'Universal Windows Platform', image: 'UWP.png' },
+    ],
+    2: [
+      { name: 'React', image: 'react.png' },
+      { name: 'Java Spring', image: 'java_spring.svg' },
+      { name: 'Material Design', image: 'material.png' },
+    ],
+    3: [
+      { name: 'React', image: 'react.png' },
+      { name: 'Styled Components', image: 'styledcomponent.png' },
+      { name: 'Firebase', image: 'firebase.png' },
     ]
   };
   
@@ -85,7 +115,7 @@ function App() {
         <AboutMe />
         <div>
           <FireLine />
-      {projects.map(({ id, title, description, imagesCount, imageBaseName, fullImage}, index) => (
+      {projects.map(({ id, title, description, imagesCount, imageBaseName, fullImage, githubLink, websiteLink}, index) => (
           <React.Fragment key={index}>
         <Project 
           key={id}
@@ -94,6 +124,8 @@ function App() {
           title={title}
           description={description}
           fullImage={fullImage}
+          githubLink={githubLink}
+          websiteLink={websiteLink}
           images={Array.from({ length: imagesCount }, (_, i) => `/${imageBaseName}${i+1}.jpg`)}
           // Use the project's id to pass the correct array of technology logos
           technologies={(technologies[id] || []).map(tech => ({
@@ -104,6 +136,7 @@ function App() {
         {index < projects.length - 1 && <WaveLine />}
       </React.Fragment>
       ))}
+        <FireLine />
       <ContactForm />
     </div>
       </div>
