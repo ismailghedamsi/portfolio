@@ -47,6 +47,15 @@ function App() {
   const projects = [
     {
       id : 0,
+      title: t('projects.project2.title'),
+      description: t('projects.project2.description'),
+      imagesCount: 150,
+      imageBaseName: "project2/image1x",
+      fullImage: "project2/musicplayer.jpg",
+      githubLink:"https://github.com/yourgithubprofile/yourprojectrepo"
+    },
+    {
+      id : 1,
       title: t("projects.project1.title"),
       description: t('projects.project1.description'),
       imagesCount: 77,
@@ -56,14 +65,22 @@ function App() {
       websiteLink:"https:/www.upcomingrapcalendar.com"
     },
     {
-      id : 1,
-      title: t('projects.project2.title'),
-      description: t('projects.project2.description'),
-      imagesCount: 150,
-      imageBaseName: "project2/image1x",
-      fullImage: "project2/musicplayer.jpg",
-      githubLink:"https://github.com/yourgithubprofile/yourprojectrepo"
+      id : 2,
+      title: t('projects.project3.title'),
+      description: t('projects.project3.description'),
+      imagesCount: 20,
+      imageBaseName: "project3/image1x",
+      fullImage: "project3/project3.jpg",
+      githubLink:"https://github.com/ismailghedamsi/InternshipManager"
     },
+    {
+      id : 3,
+      title: t('projects.project4.title'),
+      description: t('projects.project3.description'),
+      imagesCount: 27,
+      imageBaseName: "project4/image1x",
+      fullImage: "project4/project4.jpg",
+    }
   ];
 
   const technologies = {
@@ -74,6 +91,16 @@ function App() {
     ],
     1: [
       { name: 'Universal Windows Platform', image: 'UWP.png' },
+    ],
+    2: [
+      { name: 'React', image: 'react.png' },
+      { name: 'Java Spring', image: 'java_spring.svg' },
+      { name: 'Material Design', image: 'material.png' },
+    ],
+    3: [
+      { name: 'React', image: 'react.png' },
+      { name: 'Styled Components', image: 'styledcomponent.png' },
+      { name: 'Firebase', image: 'firebase.png' },
     ]
   };
   
@@ -109,6 +136,7 @@ function App() {
         {index < projects.length - 1 && <WaveLine />}
       </React.Fragment>
       ))}
+        <FireLine />
       <ContactForm />
     </div>
       </div>

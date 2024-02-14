@@ -53,6 +53,10 @@
     "project2": {
       "title": "Lecteur MP3",
       "description": "Un lecteur de musique basique pour Windows 10 avec support de glisser-déposer pour les fichiers et dossiers."
+    },
+    "project3": {
+      "title": "Application de gestion de stage (Projet Scolaire)",
+      "description": "Une application de gestion de stage qui facilite la gestion des stagiaires et des processus de stage."
     }
   }
 }

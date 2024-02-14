@@ -88,7 +88,7 @@ const MyNavbar = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <CenteredNav>
-          <ThreeDLink href="/resume.pdf" download>{t("nav.resume")}</ThreeDLink>
+          <ThreeDLink href="/cv_ismail_ghedamsi.pdf" download>{t("nav.resume")}</ThreeDLink>
           <ThreeDLink href="https://github.com/ismailghedamsi" target="_blank" rel="noopener noreferrer">GitHub</ThreeDLink>
           <ThreeDLink href="https://www.linkedin.com/in/ismail-ghedamsi-29997540/" target="_blank" rel="noopener noreferrer">LinkedIn</ThreeDLink>
           <ThreeDAnchor to="aboutMe" spy={true} smooth={true} offset={-70} duration={500}>{t("nav.about")}</ThreeDAnchor>
