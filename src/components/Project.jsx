@@ -1,11 +1,13 @@
 // Project.js
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useTransition } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Modal from 'react-modal';
 import { useSpring, animated } from 'react-spring';
 import Tooltip from './ToolTip';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import CSS for animations
+import { ThreeDLink } from './styled_components/StyledLink';
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -99,13 +101,13 @@ const GridItem = styled.div`
 
 
 // Project component
-const Project = ({ title, description, images, fullImage, style, technologies, projectId }) => {
+const Project = ({ title, description, images, fullImage, style, technologies, projectId, githubLink, websiteLink }) => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
 
-  const projectTechnologies = technologies[projectId] || [];
+  const {t} = useTranslation()
 
 
   useEffect(() => {
@@ -186,6 +188,19 @@ const Project = ({ title, description, images, fullImage, style, technologies, p
             return <Tooltip text={techLogo.name}><img data-aos-duration="3000" data-aos="fade-right" key={index} src={techLogo.logoFilename} alt={`Technology ${index}`} style={{ width: '50px', height: '50px', margin: '5px' }} /></Tooltip>
           })}
         </TechnologyLogos>
+
+        <div style={{ marginTop: '20px', textAlign: 'center' }}>
+        {githubLink && (
+          <ThreeDLink href={githubLink} target="_blank" rel="noopener noreferrer" style={{ marginRight: '10px', color: 'white', textDecoration: 'none' }}>
+            GitHub
+          </ThreeDLink>
+        )}
+        {websiteLink && (
+          <ThreeDLink href={websiteLink} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '10px', color: 'white', textDecoration: 'none' }}>
+            {t("projects.website")}
+          </ThreeDLink>
+        )}
+      </div>
 
         <Modal
           isOpen={modalIsOpen}

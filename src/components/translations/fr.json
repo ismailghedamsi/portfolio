@@ -45,6 +45,7 @@
     }
   },
   "projects": {
+    "website": "Site Web",
     "project1": {
       "title": "Calendrier des sorties rap à venir",
       "description": "Une plateforme dédiée à fournir des informations sur les prochaines sorties dans le genre musical hip-hop. Elle inclut les dates de sortie et les détails pour les nouveaux albums,"

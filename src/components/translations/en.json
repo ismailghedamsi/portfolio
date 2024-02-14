@@ -45,6 +45,7 @@
     }
   },
   "projects": {
+    "website": "Website",
     "project1": {
       "title": "Upcoming Rap Calendar",
       "description": "A platform dedicated to providing information on upcoming releases in the hip-hop music genre. It includes release dates and details for new albums,"

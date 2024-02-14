@@ -51,7 +51,9 @@ function App() {
       description: t('projects.project1.description'),
       imagesCount: 77,
       imageBaseName: "project1/image1x",
-      fullImage: "project1/project1completeimage.jpg"
+      fullImage: "project1/project1completeimage.jpg",
+      githubLink:"https://github.com/ismailghedamsi/hiphopalbumreleasedates",
+      websiteLink:"https:/www.upcomingrapcalendar.com"
     },
     {
       id : 1,
@@ -59,7 +61,8 @@ function App() {
       description: t('projects.project2.description'),
       imagesCount: 150,
       imageBaseName: "project2/image1x",
-      fullImage: "project2/musicplayer.jpg"
+      fullImage: "project2/musicplayer.jpg",
+      githubLink:"https://github.com/yourgithubprofile/yourprojectrepo"
     },
   ];
 
@@ -85,7 +88,7 @@ function App() {
         <AboutMe />
         <div>
           <FireLine />
-      {projects.map(({ id, title, description, imagesCount, imageBaseName, fullImage}, index) => (
+      {projects.map(({ id, title, description, imagesCount, imageBaseName, fullImage, githubLink, websiteLink}, index) => (
           <React.Fragment key={index}>
         <Project 
           key={id}
@@ -94,6 +97,8 @@ function App() {
           title={title}
           description={description}
           fullImage={fullImage}
+          githubLink={githubLink}
+          websiteLink={websiteLink}
           images={Array.from({ length: imagesCount }, (_, i) => `/${imageBaseName}${i+1}.jpg`)}
           // Use the project's id to pass the correct array of technology logos
           technologies={(technologies[id] || []).map(tech => ({
