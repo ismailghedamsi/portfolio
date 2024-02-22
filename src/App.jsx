@@ -5,14 +5,16 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import ContactForm from './components/ContactForm';
 import './components/translations/i18Initializer';
-import BackToTopButton from './components/BackToTopButton';
 import { useScrollToTop } from './hooks/useScrollToTop';
 import ProjectList from './components/ProjectList';
 import technologies from './data/technologies';
 import projects from './data/projects';
+import { AppContainer, BackToTopButtonStyled, ContentContainer } from './App.styled';
+import { useTranslation } from 'react-i18next';
 
 function App() {
   const showBackToTop = useScrollToTop();
+  const {t} = useTranslation()
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -22,18 +24,19 @@ function App() {
   };
 
   return (
-    <div style={{ display: 'flex', backgroundColor: '#f5f5f5', flexDirection: 'column', minHeight: '100vh' }}>
+    <AppContainer>
       <Navbar />
-      <BackToTopButton onClick={scrollToTop} style={{ display: showBackToTop ? 'block' : 'none' }}>
-        Top
-      </BackToTopButton>
-      <div style={{ flexGrow: 1 }}>
+      <BackToTopButtonStyled onClick={scrollToTop} show={showBackToTop}>
+        {t('top')}
+      </BackToTopButtonStyled>
+      <ContentContainer>
         <AboutMe />
         <ProjectList projects={projects} technologies={technologies} />
         <ContactForm />
-      </div>
+      </ContentContainer>
       <Footer />
-    </div>
+    </AppContainer>
+
   );
 }
 
