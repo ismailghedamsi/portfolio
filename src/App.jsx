@@ -1,40 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
 import AboutMe from './components/About';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import Project from './components/Project';
-import FireLine from './components/separators/FireLine';
-import WaveLine from './components/separators/WaveLine';
 import ContactForm from './components/ContactForm';
 import './components/translations/i18Initializer';
-import { useTranslation } from 'react-i18next';
 import BackToTopButton from './components/BackToTopButton';
-
+import { useScrollToTop } from './hooks/useScrollToTop';
+import ProjectList from './components/ProjectList';
+import technologies from './data/technologies';
+import projects from './data/projects';
 
 function App() {
-
-  const {t} = useTranslation()
-  const [showBackToTop, setShowBackToTop] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Show the button when the page is scrolled past the screen height
-      if (window.scrollY > window.innerHeight) {
-        setShowBackToTop(true);
-      } else {
-        setShowBackToTop(false);
-      }
-    };
-
-    // Add the event listener
-    window.addEventListener('scroll', handleScroll);
-
-    // Clean up the event listener
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const showBackToTop = useScrollToTop();
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -43,106 +21,20 @@ function App() {
     });
   };
 
-
-  const projects = [
-    {
-      id : 0,
-      title: t('projects.project2.title'),
-      description: t('projects.project2.description'),
-      imagesCount: 150,
-      imageBaseName: "project2/image1x",
-      fullImage: "project2/musicplayer.jpg",
-      githubLink:"https://github.com/yourgithubprofile/yourprojectrepo"
-    },
-    {
-      id : 1,
-      title: t("projects.project1.title"),
-      description: t('projects.project1.description'),
-      imagesCount: 77,
-      imageBaseName: "project1/image1x",
-      fullImage: "project1/project1completeimage.jpg",
-      githubLink:"https://github.com/ismailghedamsi/hiphopalbumreleasedates",
-      websiteLink:"https:/www.upcomingrapcalendar.com"
-    },
-    {
-      id : 2,
-      title: t('projects.project3.title'),
-      description: t('projects.project3.description'),
-      imagesCount: 20,
-      imageBaseName: "project3/image1x",
-      fullImage: "project3/project3.jpg",
-      githubLink:"https://github.com/ismailghedamsi/InternshipManager"
-    },
-    {
-      id : 3,
-      title: t('projects.project4.title'),
-      description: t('projects.project3.description'),
-      imagesCount: 27,
-      imageBaseName: "project4/image1x",
-      fullImage: "project4/project4.jpg",
-    }
-  ];
-
-  const technologies = {
-    0: [
-      { name: 'React', image: 'react.png' },
-      { name: 'Styled Components', image: 'styledcomponent.png' },
-      { name: 'Supabase', image: 'supabase.png' }
-    ],
-    1: [
-      { name: 'Universal Windows Platform', image: 'UWP.png' },
-    ],
-    2: [
-      { name: 'React', image: 'react.png' },
-      { name: 'Java Spring', image: 'java_spring.svg' },
-      { name: 'Material Design', image: 'material.png' },
-    ],
-    3: [
-      { name: 'React', image: 'react.png' },
-      { name: 'Styled Components', image: 'styledcomponent.png' },
-      { name: 'Firebase', image: 'firebase.png' },
-    ]
-  };
-  
-
   return (
-    <div style={{ display: 'flex',  backgroundColor: '#f5f5f5', flexDirection: 'column', minHeight: '100vh' }}>
+    <div style={{ display: 'flex', backgroundColor: '#f5f5f5', flexDirection: 'column', minHeight: '100vh' }}>
       <Navbar />
       <BackToTopButton onClick={scrollToTop} style={{ display: showBackToTop ? 'block' : 'none' }}>
         Top
       </BackToTopButton>
-        <div style={{ flexGrow: 1 }}>
+      <div style={{ flexGrow: 1 }}>
         <AboutMe />
-        <div>
-          <FireLine />
-      {projects.map(({ id, title, description, imagesCount, imageBaseName, fullImage, githubLink, websiteLink}, index) => (
-          <React.Fragment key={index}>
-        <Project 
-          key={id}
-          projectId={id}
-          style={{ delay: index * 100 }}
-          title={title}
-          description={description}
-          fullImage={fullImage}
-          githubLink={githubLink}
-          websiteLink={websiteLink}
-          images={Array.from({ length: imagesCount }, (_, i) => `/${imageBaseName}${i+1}.jpg`)}
-          // Use the project's id to pass the correct array of technology logos
-          technologies={(technologies[id] || []).map(tech => ({
-            logoFilename: `/tech_logos/${tech.image}`,
-            name: tech.name
-          }))}
-        />
-        {index < projects.length - 1 && <WaveLine />}
-      </React.Fragment>
-      ))}
-        <FireLine />
-      <ContactForm />
-    </div>
+        <ProjectList projects={projects} technologies={technologies} />
+        <ContactForm />
       </div>
       <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
