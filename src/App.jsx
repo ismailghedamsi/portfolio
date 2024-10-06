@@ -52,7 +52,7 @@ function App() {
       imagesCount: 150,
       imageBaseName: "project2/image1x",
       fullImage: "project2/musicplayer.jpg",
-      githubLink:"https://github.com/yourgithubprofile/yourprojectrepo"
+      githubLink:"https://github.com/ismailghedamsi/SiminaireUwpIsmailGhedamsi"
     },
     {
       id : 1,
@@ -62,7 +62,7 @@ function App() {
       imageBaseName: "project1/image1x",
       fullImage: "project1/project1completeimage.jpg",
       githubLink:"https://github.com/ismailghedamsi/hiphopalbumreleasedates",
-      websiteLink:"https:/www.upcomingrapcalendar.com"
+      websiteLink:"https://www.upcomingrapcalendar.com"
     },
     {
       id : 2,
